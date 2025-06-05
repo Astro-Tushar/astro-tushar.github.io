@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tushar Kant Ram | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main: #1976d2;
+      --accent: #81c784;
+      --bg: #e3f2fd;
+      --card: #fff;
+      --divider: linear-gradient(90deg, #1976d2 0%, #81c784 100%);
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--bg);
+      color: #263238;
+      overflow-x: hidden;
+    }
+    .top-wave {
+      width: 100%;
+      height: 170px;
+      background: var(--divider);
+      position: absolute;
+      top: 0; left: 0; z-index: 0;
+      clip-path: ellipse(85% 100% at 50% 0%);
+    }
+    .container {
+      position: relative;
+      max-width: 980px;
+      margin: 70px auto 0 auto;
+      background: var(--card);
+      border-radius: 28px;
+      box-shadow: 0 8px 32px rgba(25, 118, 210, 0.14);
+      padding: 38px 30px 30px 30px;
+      z-index: 1;
+      margin-bottom: 40px;
+    }
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 34px;
+    }
+    .avatar {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      box-shadow: 0 6px 24px rgba(25, 118, 210, 0.19);
+      border: 4px solid #fff;
+      object-fit: cover;
+      margin-top: -92px;
+      margin-bottom: 12px;
+      background: #f4f8fb;
+    }
+    .header h1 {
+      font-size: 2.7em;
+      font-weight: 700;
+      margin-bottom: 3px;
+      color: var(--main);
+      letter-spacing: 1px;
+      text-shadow: 0 2px 6px rgba(25, 118, 210, 0.08);
+    }
+    .subtitle {
+      font-size: 1.12em;
+      color: #4caf50;
+      font-weight: 600;
+    }
+    .contact {
+      margin-top: 14px;
+      display: flex;
+      gap: 22px;
+      justify-content: center;
+      flex-wrap: wrap;
+      color: #607d8b;
+      font-size: 1em;
+    }
+    .contact a {
+      color: var(--main);
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.2s;
+    }
+    .contact a:hover { color: #388e3c; }
+    .section {
+      margin: 48px 0 0 0;
+    }
+    .section-title {
+      font-size: 1.7em;
+      font-weight: bold;
+      color: var(--main);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-divider {
+      width: 80px;
+      height: 5px;
+      border-radius: 3px;
+      background: var(--divider);
+      margin: 13px 0 26px 0;
+      border: none;
+    }
+    .about {
+      font-size: 1.15em;
+      color: #455a64;
+      line-height: 1.65;
+      max-width: 820px;
+      margin: 0 auto;
+      margin-bottom: 0.5em;
+    }
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 19px;
+      margin-top: 10px;
+      margin-bottom: 26px;
+    }
+    .skill-card {
+      background: linear-gradient(120deg, #1976d2 20%, #fff 180%);
+      color: #263238;
+      padding: 20px 16px 10px 16px;
+      border-radius: 14px;
+      box-shadow: 0 3px 18px rgba(25, 118, 210, 0.09);
+      text-align: center;
+      font-size: 1.07em;
+      font-weight: 500;
+      position: relative;
+      overflow: hidden;
+      min-width: 120px;
+      border: 1px solid #e3eaf2;
+    }
+    .skill-icon {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 7px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      filter: drop-shadow(0 2px 3px rgba(25, 118, 210, 0.09));
+    }
+    .skill-bar-bg {
+      width: 100%; height: 7px;
+      background: #e3eaf2;
+      border-radius: 7px;
+      margin-top: 8px;
+      margin-bottom: 3px;
+      overflow: hidden;
+    }
+    .skill-bar {
+      height: 100%;
+      border-radius: 7px;
+      background: var(--accent);
+      transition: width 1.2s cubic-bezier(.33,.7,.57,1.4);
+    }
+    .card-list {
+      margin: 0; padding: 0; list-style: none;
+    }
+    .exp-card, .edu-card {
+      background: #f7fbff;
+      border-radius: 17px;
+      padding: 19px 23px 13px 23px;
+      margin-bottom: 17px;
+      box-shadow: 0 2px 9px rgba(25, 118, 210, 0.10);
+    }
+    .exp-card .title, .edu-card .title {
+      font-weight: 700;
+      color: #1976d2;
+      font-size: 1.08em;
+    }
+    .exp-card .subtitle, .edu-card .subtitle {
+      color: #607d8b;
+      font-size: 1em;
+      margin-bottom: 2px;
+    }
+    .exp-card ul, .edu-card ul {
+      margin-top: 6px; margin-bottom: 0;
+      padding-left: 18px; font-size: 1em;
+    }
+    .cert-list {
+      margin-left: 24px;
+      font-size: 1.09em;
+    }
+    .footer {
+      text-align: center;
+      color: #93a5af;
+      margin-top: 50px;
+      padding-bottom: 24px;
+      font-size: 1em;
+    }
+    @media (max-width: 900px) {
+      .container { padding: 16px 2vw; }
+    }
+    @media (max-width: 650px) {
+      .container { padding: 5vw 2vw; }
+      .header h1 { font-size: 2em; }
+      .section-title { font-size: 1.1em; }
+      .skills-list { grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-wave"></div>
+  <div class="container">
+    <div class="header">
+      <img class="avatar" src="https://api.dicebear.com/8.x/bottts/svg?seed=Tushar" alt="Your photo or avatar"/>
+      <h1>Tushar Kant Ram</h1>
+      <div class="subtitle">Data Engineer&nbsp;&bull;&nbsp;Software Engineer&nbsp;&bull;&nbsp;IT Support</div>
+      <div class="contact" style="margin-bottom: 5px;">
+        <span>
+          <svg width="17" height="17" fill="#1976d2" style="vertical-align:middle"><circle cx="8" cy="8" r="8" fill="#fff"/><circle cx="8" cy="8" r="7" fill="none" stroke="#1976d2"/><circle cx="8" cy="7" r="2.7" fill="#81c784"/><ellipse cx="8" cy="12" rx="4.3" ry="2.3" fill="#81c784"/></svg>
+          Montreal, Quebec
+        </span>
+        <a href="mailto:tkr.kmc@gmail.com">
+          <svg width="16" height="16" fill="none" style="vertical-align:middle"><rect width="16" height="16" rx="4" fill="#1976d2"/><path d="M3 5.5v5a1.5 1.5 0 001.5 1.5h7A1.5 1.5 0 0013 10.5v-5A1.5 1.5 0 0011.5 4h-7A1.5 1.5 0 003 5.5z" stroke="#fff" stroke-width="1"/><path d="M3.8 5.2L8 8.4l4.2-3.2" stroke="#fff" stroke-width="1"/></svg>
+          tkr.kmc@gmail.com
+        </a>
+        <a href="tel:+18259778685">
+          <svg width="15" height="15" style="vertical-align:middle"><circle cx="7.5" cy="7.5" r="7.5" fill="#1976d2"/><path d="M4.2 6.7a7.2 7.2 0 004.1 4.1l1.1-1.1a.55.55 0 01.56-.13c.62.2 1.3.3 2 .33a.54.54 0 01.53.53V12a.54.54 0 01-.53.53C7.5 12.53 3.5 8.53 3.5 3.53A.54.54 0 014.03 3h1.24a.54.54 0 01.53.53c.03.7.14 1.38.34 2a.55.55 0 01-.13.56L4.2 6.7z" fill="#fff"/></svg>
+          +1 825-977-8685
+        </a>
+        <a href="https://www.linkedin.com/in/tushar0808/" target="_blank">
+          <svg width="16" height="16" style="vertical-align:middle"><rect width="16" height="16" rx="4" fill="#81c784"/><path d="M4.5 5.5v5M4.5 11.5v.01M8 7.5v3a.5.5 0 01-.5.5h-2a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5h2a.5.5 0 01.5.5zM11.5 8.5v2a.5.5 0 01-.5.5h-2a.5.5 0 01-.5-.5v-2a.5.5 0 01.5-.5h2a.5.5 0 01.5.5z" stroke="#1976d2" stroke-width="1"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">
+        <svg width="26" height="26" style="vertical-align:middle"><circle cx="13" cy="13" r="12" fill="#81c784"/><text x="13" y="18" text-anchor="middle" font-size="14" fill="#1976d2" font-family="sans-serif">🛈</text></svg>
+        About
+      </div>
+      <hr class="section-divider"/>
+      <div class="about">
+        Results-driven Data Engineering and Analytics professional with hands-on experience in SQL, Python, data modeling, ETL processes, and analytical tools. Skilled in developing scalable data infrastructures, crafting interactive dashboards, and extracting actionable insights to support informed decision-making.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">
+        <svg class="skill-icon" width="24" height="24" fill="none"><rect width="24" height="24" rx="7" fill="#1976d2"/><path d="M7 13l3-3 3 3" stroke="#fff" stroke-width="2"/></svg>
+        Technical Skills
+      </div>
+      <hr class="section-divider"/>
+      <div class="skills-list" id="skills-list"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">
+        <svg width="28" height="28"><circle cx="14" cy="14" r="13" fill="#fff"/><circle cx="14" cy="14" r="12" fill="none" stroke="#81c784" stroke-width="2"/><path d="M7 20l7-7 4 4" stroke="#1976d2" stroke-width="2" fill="none"/></svg>
+        Professional Experience
+      </div>
+      <hr class="section-divider"/>
+      <ul class="card-list" id="exp-list"></ul>
+    </div>
+
+    <div class="section">
+      <div class="section-title">
+        <svg width="26" height="26"><rect width="26" height="26" rx="9" fill="#1976d2"/><text x="13" y="19" text-anchor="middle" font-size="14" fill="#fff" font-family="sans-serif">🎓</text></svg>
+        Education
+      </div>
+      <hr class="section-divider"/>
+      <ul class="card-list" id="edu-list"></ul>
+    </div>
+
+    <div class="section">
+      <div class="section-title">
+        <svg width="22" height="22"><rect width="22" height="22" rx="6" fill="#81c784"/><text x="11" y="17" text-anchor="middle" font-size="13" fill="#1976d2" font-family="sans-serif">🏅</text></svg>
+        Certifications
+      </div>
+      <hr class="section-divider"/>
+      <ul class="cert-list">
+        <li>Business Intelligence and Data Engineering (NAIT)</li>
+        <li>Leadership and Project Management for IT (NAIT)</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      &copy; <span id="year"></span> Tushar Kant Ram
+    </div>
+  </div>
+
+  <script>
+    // --- Skill Data (icon + label + proficiency) ---
+    const skills = [
+      { icon: "🐍", name: "Python", percent: 96 },
+      { icon: "⚡", name: "JavaScript", percent: 90 },
+      { icon: "🗄️", name: "MySQL", percent: 87 },
+      { icon: "⚛️", name: "ReactJS", percent: 88 },
+      { icon: "🖥️", name: "C++ (basic)", percent: 70 },
+      { icon: "🔄", name: "ETL Pipelines", percent: 86 },
+      { icon: "🏢", name: "Data Warehousing", percent: 85 },
+      { icon: "☁️", name: "AWS", percent: 78 },
+      { icon: "📊", name: "Power BI", percent: 83 },
+      { icon: "📉", name: "Tableau", percent: 82 },
+      { icon: "📚", name: "Relational DBs", percent: 88 },
+      { icon: "🧩", name: "Dimensional Modeling", percent: 82 },
+      { icon: "🗂️", name: "Schema Design", percent: 85 },
+      { icon: "🔥", name: "Databricks", percent: 80 },
+      { icon: "🛠️", name: "Apache Spark", percent: 82 },
+      { icon: "💾", name: "Delta Lake", percent: 81 },
+      { icon: "🔗", name: "Git", percent: 89 },
+      { icon: "📝", name: "Jira", percent: 83 },
+      { icon: "📈", name: "Excel", percent: 89 },
+    ];
+
+    const skillList = document.getElementById('skills-list');
+    skills.forEach(skill => {
+      const div = document.createElement('div');
+      div.className = "skill-card";
+      div.innerHTML = `
+        <span class="skill-icon" style="font-size:2em;">${skill.icon}</span>
+        <div>${skill.name}</div>
+        <div class="skill-bar-bg">
+          <div class="skill-bar" style="width:0"></div>
+        </div>
+      `;
+      skillList.appendChild(div);
+      // Animate bar after render
+      setTimeout(() => {
+        div.querySelector('.skill-bar').style.width = skill.percent + "%";
+      }, 250);
+    });
+
+    // --- Experience Data ---
+    const experience = [
+      {
+        title: "Conversions Technician",
+        subtitle: "Oilers Entertainment Group, Edmonton | Aug 2023 – May 2024",
+        bullets: [
+          "Coordinated logistical and technical configurations to support data-driven event planning.",
+          "Enhanced operational efficiency by implementing structured processes and protocols."
+        ]
+      },
+      {
+        title: "Senior Software Engineer",
+        subtitle: "Accolite Digital India Pvt Ltd | June 2022 – June 2023",
+        bullets: [
+          "Developed scalable applications by integrating ReactJS with backend services.",
+          "Created analytics solutions to enable dynamic data visualization and reporting.",
+          "Improved system reliability and performance through troubleshooting and optimization."
+        ]
+      },
+      {
+        title: "Frontend Developer",
+        subtitle: "InternetDoctors, India | Sep 2020 – May 2022",
+        bullets: [
+          "Designed intuitive, data-intensive user interfaces and dashboards.",
+          "Optimized user experience through data-backed insights and collaborative iteration.",
+          "Built reusable UI components and diagnosed complex data rendering issues."
+        ]
+      },
+      {
+        title: "Technical Support Associate",
+        subtitle: "Wipro Ltd, India | Nov 2018 – July 2019",
+        bullets: [
+          "Delivered IT support services, ensuring data integrity and resolving user issues.",
+          "Diagnosed technical problems quickly to minimize system downtime and disruptions."
+        ]
+      }
+    ];
+    const expList = document.getElementById('exp-list');
+    experience.forEach(exp => {
+      const li = document.createElement('li');
+      li.className = "exp-card";
+      li.innerHTML = `
+        <div class="title">${exp.title}</div>
+        <div class="subtitle">${exp.subtitle}</div>
+        <ul>${exp.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+      `;
+      expList.appendChild(li);
+    });
+
+    // --- Education Data ---
+    const education = [
+      {
+        title: "Business Intelligence & Data Engineering",
+        subtitle: "NAIT, Edmonton | Sep 2024 – June 2025",
+        bullets: [
+          "Focus Areas: SQL, Python, Data Modeling, ETL, AWS, Databricks",
+          "Capstone Project: Employee Attrition Analysis (dashboards, predictive modeling)"
+        ]
+      },
+      {
+        title: "Leadership and Project Management for IT",
+        subtitle: "NAIT, Edmonton | Aug 2023 – July 2024",
+        bullets: [
+          "Emphasis on Agile methodologies, project planning, and risk management."
+        ]
+      },
+      {
+        title: "CCNA Training",
+        subtitle: "Network Bulls, India | Aug 2019 – July 2020",
+        bullets: [
+          "Covered core networking concepts for building resilient data infrastructures."
+        ]
+      },
+      {
+        title: "BSc in Computer Science",
+        subtitle: "University of Delhi, India | July 2014 – June 2017",
+        bullets: [
+          "Specialized in database systems, software development, and applied analytics."
+        ]
+      }
+    ];
+    const eduList = document.getElementById('edu-list');
+    education.forEach(edu => {
+      const li = document.createElement('li');
+      li.className = "edu-card";
+      li.innerHTML = `
+        <div class="title">${edu.title}</div>
+        <div class="subtitle">${edu.subtitle}</div>
+        <ul>${edu.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+      `;
+      eduList.appendChild(li);
+    });
+
+    // --- Set Year ---
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
