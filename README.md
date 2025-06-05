@@ -1,1 +1,0 @@
-# astro-tushar.github.io
