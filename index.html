@@ -7,162 +7,174 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --main: #1d4ed8;
-      --accent: #22c55e;
-      --bg: #f1f5f9;
-      --card: #fff;
+      --main: #84fbff;
+      --accent: #7fff74;
+      --bg1: #131824;
+      --bg2: #262b3a;
+      --cube-glow: 0 0 18px #84fbff66, 0 0 44px #7fff7444;
+      --card: #1e2331;
+    }
+    html, body {
+      min-height: 100%;
+      background: var(--bg1);
     }
     body {
       font-family: 'Inter', Arial, sans-serif;
       margin: 0;
-      background: var(--bg);
-      color: #22223b;
+      color: #e7f9ff;
+      min-height: 100vh;
+      background: radial-gradient(ellipse at 50% 0%, #262b3a 0%, #131824 100%);
+      /* dark theme smooth background */
     }
     .container {
       max-width: 900px;
-      margin: 36px auto 30px auto;
+      margin: 36px auto 32px auto;
       background: var(--card);
-      border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(30, 64, 175, 0.11);
-      padding: 40px 32px;
+      border-radius: 22px;
+      box-shadow: 0 8px 32px #44aadd22;
+      padding: 44px 32px;
+      position: relative;
+      overflow: hidden;
     }
     .header {
       text-align: center;
       margin-bottom: 35px;
+      position: relative;
+      z-index: 1;
     }
     .avatar {
       width: 120px; height: 120px;
       border-radius: 50%;
-      box-shadow: 0 4px 24px rgba(30, 64, 175, 0.13);
-      border: 5px solid #fff;
+      box-shadow: 0 8px 36px #33f8f622;
+      border: 5px solid #262b3a;
       object-fit: cover;
-      background: #f3f6fa;
+      background: #191f2b;
       margin-bottom: 12px;
     }
-
-    /* 3D cube animation */
-    .cube-container {
-      perspective: 600px;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 30px;
-    }
-    .cube {
-      position: relative;
-      width: 120px;
-      height: 120px;
-      transform-style: preserve-3d;
-      animation: cube-rotate 7s linear infinite;
-    }
-    .cube-face {
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      background: var(--main);
-      border: 3px solid var(--accent);
-      opacity: 0.9;
-    }
-    .cube-face.front  { transform: translateZ(60px); }
-    .cube-face.back   { transform: rotateY(180deg) translateZ(60px); }
-    .cube-face.right  { transform: rotateY(90deg) translateZ(60px); }
-    .cube-face.left   { transform: rotateY(-90deg) translateZ(60px); }
-    .cube-face.top    { transform: rotateX(90deg) translateZ(60px); }
-    .cube-face.bottom { transform: rotateX(-90deg) translateZ(60px); }
-    @keyframes cube-rotate {
-      from { transform: rotateX(0) rotateY(0); }
-      to   { transform: rotateX(360deg) rotateY(360deg); }
-    }
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.6rem;
       color: var(--main);
       margin-bottom: 0.2em;
+      letter-spacing: 1px;
+      font-weight: 700;
+      text-shadow: 0 4px 22px #7fff7477;
     }
     .subtitle {
-      font-size: 1.19em;
+      font-size: 1.16em;
       color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 1.3em;
+      font-weight: 700;
+      margin-bottom: 1.2em;
+      text-shadow: 0 1px 10px #7fff7422;
     }
     .contact {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
-      color: #555;
+      color: #84fbff;
       font-size: 1em;
-      margin-bottom: 10px;
+      margin-bottom: 14px;
+      opacity: 0.93;
     }
     .contact a {
       color: var(--main);
       text-decoration: none;
       font-weight: 500;
+      position: relative;
       transition: color 0.2s;
     }
-    .contact a:hover { color: #1db954; }
-
+    .contact a:hover { color: var(--accent);}
     .section {
-      margin-top: 40px;
+      margin-top: 38px;
+      opacity: 1;
+      transform: none;
     }
     .section-title {
-      font-size: 1.5em;
+      font-size: 1.44em;
       font-weight: bold;
       color: var(--main);
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
+      position: relative;
+      text-shadow: 0 1px 14px #84fbff44;
     }
     .section-divider {
-      width: 70px;
+      width: 80px;
       height: 4px;
       border-radius: 2px;
       background: linear-gradient(90deg, var(--main), var(--accent));
       margin: 0 0 18px 0;
       border: none;
+      box-shadow: 0 1px 20px #7fff7444;
     }
     .about {
       font-size: 1.13em;
-      color: #334155;
-      line-height: 1.65;
+      color: #bbebff;
+      line-height: 1.66;
       margin-bottom: 1em;
     }
-
-    /* SKILLS GRID - RESPONSIVE */
+    /* SKILLS GRID */
     .skills-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       gap: 16px;
       margin-top: 10px;
-      margin-bottom: 25px;
+      margin-bottom: 24px;
     }
     .skill-card {
-      background: #e8f0fe;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(30, 64, 175, 0.09);
+      background: linear-gradient(120deg, #222e43 85%, #232b28 120%);
+      border-radius: 14px;
+      box-shadow: 0 4px 18px #84fbff22;
       text-align: center;
-      padding: 18px 10px 10px 10px;
+      padding: 22px 10px 13px 10px;
       font-weight: 500;
+      color: #bafff8;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
+      transition: box-shadow 0.27s, transform 0.22s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .skill-card:hover {
+      box-shadow: 0 8px 40px #84fbff55, 0 1.5px 7px #7fff7444;
+      transform: translateY(-4px) scale(1.03) rotate(-2deg);
+      background: linear-gradient(90deg, #1e293b 90%, #222e43 100%);
     }
     .skill-icon {
       font-size: 2em;
-      margin-bottom: 7px;
-      line-height: 1;
+      margin-bottom: 10px;
+      animation: iconWave 2.3s infinite ease-in-out;
+      will-change: transform;
+      display: inline-block;
     }
-
+    @keyframes iconWave {
+      0%,100% { transform: rotate(-8deg) scale(1);}
+      10% { transform: rotate(9deg) scale(1.10);}
+      20% { transform: rotate(-8deg) scale(1);}
+      50% { transform: rotate(0deg) scale(1.08);}
+      80% { transform: rotate(-8deg) scale(1);}
+    }
+    .skill-card:hover .skill-icon {
+      animation: none;
+      transform: scale(1.18) rotate(4deg);
+      filter: drop-shadow(0 0 8px #7fff7444);
+    }
     /* EXPERIENCE & EDUCATION */
-    .card-list {
-      margin: 0; padding: 0; list-style: none;
-    }
+    .card-list { margin: 0; padding: 0; list-style: none;}
     .exp-card, .edu-card {
-      background: #f7fbff;
+      background: #232b37;
       border-radius: 13px;
-      padding: 17px 17px 11px 17px;
+      padding: 19px 17px 11px 17px;
       margin-bottom: 15px;
-      box-shadow: 0 2px 8px rgba(30, 64, 175, 0.09);
+      box-shadow: 0 2px 10px #84fbff16;
+      transition: box-shadow 0.19s, transform 0.2s;
+      opacity: 0.95;
     }
     .exp-card .title, .edu-card .title {
       font-weight: 700;
@@ -170,7 +182,7 @@
       font-size: 1.08em;
     }
     .exp-card .subtitle, .edu-card .subtitle {
-      color: #555;
+      color: #95e7db;
       font-size: 0.98em;
       margin-bottom: 3px;
     }
@@ -179,47 +191,173 @@
       padding-left: 17px;
       font-size: 0.99em;
     }
-    .cert-list {
-      margin-left: 23px;
-      font-size: 1.08em;
+    .exp-card:hover, .edu-card:hover {
+      box-shadow: 0 8px 36px #84fbff55, 0 2px 12px #7fff7444;
+      transform: scale(1.02) translateY(-2px);
     }
+   .cert-list {
+  margin-left: 23px;
+  font-size: 1.09em;
+  color: #7fff74;
+  list-style: disc;
+  padding-left: 15px;
+}
+.cert-list li {
+  color: #afffda;
+  text-shadow: 0 1px 12px #7fff74bb;
+  cursor: pointer;
+  transition: color 0.15s, text-shadow 0.17s;
+  margin-bottom: 10px;
+  font-weight: 600;
+  position: relative;
+}
+.cert-list li:hover {
+  color: #84fbff;
+  text-shadow: 0 1px 18px #84fbffaa, 0 0 4px #7fff74;
+}
+
     .footer {
       text-align: center;
-      color: #9fa6b2;
-      margin-top: 46px;
-      padding-bottom: 18px;
+      color: #7fff74a0;
+      margin-top: 45px;
+      padding-bottom: 16px;
       font-size: 1em;
+      opacity: 0.85;
+      letter-spacing: 1px;
     }
-    /* ---- MOBILE ---- */
-    @media (max-width: 700px) {
-      .container { padding: 16px 3vw; }
-      h1 { font-size: 2em; }
-      .section-title { font-size: 1.08em; }
+    /* CUBE STYLES */
+    .cube-flex {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 32px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
     }
-    @media (max-width: 500px) {
-      .skills-list {
-        grid-template-columns: 1fr 1fr;
-        gap: 9px;
-      }
-      .container { padding: 4vw 2vw; }
-      .header { padding-top: 5px; }
-      .subtitle { font-size: 1em; }
-      .about { font-size: 1em; }
-      .skill-card { font-size: 0.97em; padding: 13px 4px 8px 4px; }
+    .cube-container {
+      width: 170px;
+      height: 170px;
+      perspective: 800px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    @media (max-width: 340px) {
-      .skills-list {
-        grid-template-columns: 1fr;
-      }
+    .cube {
+      width: 120px;
+      height: 120px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: box-shadow 0.22s;
+      box-shadow: var(--cube-glow);
+      cursor: grab;
+    }
+    .cube.dragging { box-shadow: 0 0 40px 10px #7fff74bb, 0 8px 60px #84fbff99;}
+    @media (max-width: 600px) {
+      .cube-container { width: 100px; height: 100px; }
+      .cube, .face { width: 65px; height: 65px; font-size: 0.9em; padding: 5px; }
+      .cube-icon { margin-bottom: 5px; }
+      .face svg { width: 22px; height: 22px; }
+    }
+    .face {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.02em;
+      color: #fff;
+      border-radius: 18px;
+      box-shadow: 0 6px 24px #84fbff26;
+      text-align: center;
+      padding: 12px 10px 10px 10px;
+      user-select: none;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: box-shadow 0.18s;
+      background: #111827;
+      border: 1.5px solid #7fff74;
+      outline: 1.5px solid #84fbff55;
+      outline-offset: -4px;
+    }
+    .cube-icon {
+      display: block;
+      margin-bottom: 8px;
+    }
+    .face-front  { background: linear-gradient(135deg,#0ea5e9 60%,#84fbff 100%);}
+    .face-back   { background: linear-gradient(135deg,#7fff74 65%,#bef264 100%);}
+    .face-right  { background: linear-gradient(135deg,#eab308 60%,#fde68a 100%);}
+    .face-left   { background: linear-gradient(135deg,#a21caf 60%,#818cf8 100%);}
+    .face-top    { background: linear-gradient(135deg,#f43f5e 65%,#f472b6 100%);}
+    .face-bottom { background: linear-gradient(135deg,#0d9488 70%,#5eead4 100%);}
+    .face-front  { transform: rotateY(0deg)   translateZ(60px);}
+    .face-back   { transform: rotateY(180deg) translateZ(60px);}
+    .face-right  { transform: rotateY(90deg)  translateZ(60px);}
+    .face-left   { transform: rotateY(-90deg) translateZ(60px);}
+    .face-top    { transform: rotateX(90deg)  translateZ(60px);}
+    .face-bottom { transform: rotateX(-90deg) translateZ(60px);}
+    .face:active { box-shadow: 0 0 0 6px #7fff7440, 0 8px 40px #7fff7444;}
+    /* Modal styling */
+    .cube-modal-bg {
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(18,26,33,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    .cube-modal {
+      background: #151a22;
+      border-radius: 18px;
+      padding: 32px 22px 26px 22px;
+      max-width: 340px;
+      color: #d3ffe6;
+      box-shadow: 0 10px 36px #22fff066, 0 2px 8px #7fff744c;
+      animation: modalPop 0.35s cubic-bezier(.71,-0.37,.37,1.37);
+      position: relative;
+      text-align: center;
+      border: 2.5px solid #7fff74;
+    }
+    @keyframes modalPop {
+      0% { opacity:0; transform: scale(0.9) translateY(38px);}
+      100% { opacity:1; transform: none;}
+    }
+    .cube-modal-close {
+      position: absolute;
+      top: 8px; right: 15px;
+      font-size: 2em;
+      color: #84fbff;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.77;
+    }
+    .cube-modal h2 {
+      margin-top: 0;
+      color: #7fff74;
+      font-weight: bold;
+      text-shadow: 0 2px 8px #7fff7442;
+    }
+    .cube-modal p {
+      color: #c7eaff;
+      margin-bottom: 0;
+      font-size: 1.03em;
+    }
+    @media (max-width:500px) {
+      .cube-modal { max-width: 93vw; padding: 16px 7vw 18px 7vw;}
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <img class="avatar" src="/my-photo.jpg" alt="Your photo or avatar"/>
+      <img class="avatar" src="https://api.dicebear.com/8.x/bottts/svg?seed=Tushar" alt="Your photo or avatar"/>
       <h1>Tushar Kant Ram</h1>
-      <div class="subtitle">Data Engineer&nbsp;&bull;&nbsp;Software Engineer&nbsp;&bull;&nbsp;IT Support</div>
+      <div class="subtitle">Software Engineer &bull; Data Engineer &bull; IT Support</div>
       <div class="contact">
         <span>Montreal, Quebec</span>
         <a href="mailto:tkr.kmc@gmail.com">tkr.kmc@gmail.com</a>
@@ -227,21 +365,66 @@
         <a href="https://www.linkedin.com/in/tushar0808/" target="_blank">LinkedIn</a>
       </div>
     </div>
+    <div class="cube-flex">
+      <div class="cube-container">
+        <div class="cube" id="myCube">
+          <div class="face face-front"   onclick="showCubeModal('Software Engineer')">
+            <span class="cube-icon">
+              <!-- Laptop SVG -->
+              <svg width="36" height="36" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2" fill="#fff" opacity=".18"/><rect x="3" y="5" width="18" height="12" rx="2" fill="none" stroke="#fff" stroke-width="2"/><rect x="7" y="16" width="10" height="2" rx="1" fill="#fff"/></svg>
+            </span>
+            Software Engineer
+          </div>
+          <div class="face face-back"    onclick="showCubeModal('Data Analyst')">
+            <span class="cube-icon">
+              <!-- Bar chart SVG -->
+              <svg width="36" height="36" viewBox="0 0 24 24"><rect x="5" y="10" width="3" height="8" rx="1" fill="#fff"/><rect x="10.5" y="6" width="3" height="12" rx="1" fill="#fff"/><rect x="16" y="13" width="3" height="5" rx="1" fill="#fff"/></svg>
+            </span>
+            Data Analyst
+          </div>
+          <div class="face face-right"   onclick="showCubeModal('IT Support')">
+            <span class="cube-icon">
+              <!-- Tools SVG -->
+              <svg width="36" height="36" viewBox="0 0 24 24"><circle cx="9" cy="15" r="2" fill="#fff"/><path d="M17.5 10l-3.5 3.5M13 17l5-5m-4.5 4.5l-1.5 1.5m0-7L7 5l-2 2 5 5z" stroke="#fff" stroke-width="2" fill="none"/></svg>
+            </span>
+            IT Support
+          </div>
+          <div class="face face-left"    onclick="showCubeModal('Cloud Specialist')">
+            <span class="cube-icon">
+              <!-- Cloud SVG -->
+              <svg width="36" height="36" viewBox="0 0 24 24"><ellipse cx="12" cy="15" rx="8" ry="5" fill="#fff" opacity=".19"/><ellipse cx="12" cy="15" rx="5" ry="3" fill="#fff"/><ellipse cx="15" cy="15" rx="2" ry="1.2" fill="#fff"/></svg>
+            </span>
+            Cloud Specialist
+          </div>
+          <div class="face face-top"     onclick="showCubeModal('Data Engineer')">
+            <span class="cube-icon">
+              <!-- Database SVG -->
+              <svg width="36" height="36" viewBox="0 0 24 24"><ellipse cx="12" cy="7" rx="7" ry="3" fill="#fff"/><rect x="5" y="7" width="14" height="10" rx="7" fill="#fff" opacity=".18"/><ellipse cx="12" cy="17" rx="7" ry="3" fill="#fff"/></svg>
+            </span>
+            Data Engineer
+          </div>
+          <div class="face face-bottom"  onclick="showCubeModal('Business Analyst')">
+            <span class="cube-icon">
+              <!-- Briefcase SVG -->
+              <svg width="36" height="36" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="11" rx="2" fill="#fff" opacity=".20"/><rect x="3" y="7" width="18" height="11" rx="2" fill="none" stroke="#fff" stroke-width="2"/><rect x="8" y="5" width="8" height="4" rx="2" fill="#fff" stroke="#fff" stroke-width="2"/></svg>
+            </span>
+            Business Analyst
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <div class="cube-container">
-      <div class="cube">
-        <div class="cube-face front"></div>
-        <div class="cube-face back"></div>
-        <div class="cube-face right"></div>
-        <div class="cube-face left"></div>
-        <div class="cube-face top"></div>
-        <div class="cube-face bottom"></div>
+    <!-- Modal for Cube Face Info -->
+    <div id="cube-modal" class="cube-modal-bg" style="display:none;">
+      <div class="cube-modal">
+        <span class="cube-modal-close" onclick="hideCubeModal()">&times;</span>
+        <div id="cube-modal-content"></div>
       </div>
     </div>
 
     <div class="section">
       <div class="section-title">
-        <svg width="23" height="23" style="vertical-align:middle"><circle cx="11.5" cy="11.5" r="11.5" fill="#22c55e"/><text x="11.5" y="16" text-anchor="middle" font-size="12" fill="#1d4ed8" font-family="sans-serif">🛈</text></svg>
+        <svg width="23" height="23" style="vertical-align:middle"><circle cx="11.5" cy="11.5" r="11.5" fill="#7fff74"/><text x="11.5" y="16" text-anchor="middle" font-size="12" fill="#0ea5e9" font-family="sans-serif">🛈</text></svg>
         About
       </div>
       <hr class="section-divider"/>
@@ -252,7 +435,7 @@
 
     <div class="section">
       <div class="section-title">
-        <svg width="22" height="22" style="vertical-align:middle"><rect width="22" height="22" rx="6" fill="#1d4ed8"/><path d="M7 13l3-3 3 3" stroke="#fff" stroke-width="2"/></svg>
+        <svg width="22" height="22" style="vertical-align:middle"><rect width="22" height="22" rx="6" fill="#0ea5e9"/><path d="M7 13l3-3 3 3" stroke="#fff" stroke-width="2"/></svg>
         Technical Skills
       </div>
       <hr class="section-divider"/>
@@ -261,7 +444,7 @@
 
     <div class="section">
       <div class="section-title">
-        <svg width="24" height="24"><circle cx="12" cy="12" r="12" fill="#fff"/><circle cx="12" cy="12" r="11" fill="none" stroke="#22c55e" stroke-width="2"/><path d="M7 18l5-5 3 3" stroke="#1d4ed8" stroke-width="2" fill="none"/></svg>
+        <svg width="24" height="24"><circle cx="12" cy="12" r="12" fill="#fff"/><circle cx="12" cy="12" r="11" fill="none" stroke="#7fff74" stroke-width="2"/><path d="M7 18l5-5 3 3" stroke="#0ea5e9" stroke-width="2" fill="none"/></svg>
         Professional Experience
       </div>
       <hr class="section-divider"/>
@@ -270,31 +453,143 @@
 
     <div class="section">
       <div class="section-title">
-        <svg width="23" height="23"><rect width="23" height="23" rx="7" fill="#1d4ed8"/><text x="11.5" y="17" text-anchor="middle" font-size="12" fill="#fff" font-family="sans-serif">🎓</text></svg>
+        <svg width="23" height="23"><rect width="23" height="23" rx="7" fill="#0ea5e9"/><text x="11.5" y="17" text-anchor="middle" font-size="12" fill="#fff" font-family="sans-serif">🎓</text></svg>
         Education
       </div>
       <hr class="section-divider"/>
       <ul class="card-list" id="edu-list"></ul>
     </div>
 
-    <div class="section">
-      <div class="section-title">
-        <svg width="21" height="21"><rect width="21" height="21" rx="6" fill="#22c55e"/><text x="10.5" y="15" text-anchor="middle" font-size="11" fill="#1d4ed8" font-family="sans-serif">🏅</text></svg>
-        Certifications
-      </div>
-      <hr class="section-divider"/>
-      <ul class="cert-list">
-        <li>Business Intelligence and Data Engineering (NAIT)</li>
-        <li>Leadership and Project Management for IT (NAIT)</li>
-      </ul>
-    </div>
+  <div class="section">
+  <div class="section-title">
+    <svg width="21" height="21"><rect width="21" height="21" rx="6" fill="#7fff74"/><text x="10.5" y="15" text-anchor="middle" font-size="11" fill="#0ea5e9" font-family="sans-serif">🏅</text></svg>
+    Certifications
+  </div>
+  <hr class="section-divider"/>
+  <ul class="cert-list">
+    <li onclick="showCertModal(0)">Business Intelligence and Data Engineering (NAIT)</li>
+    <li onclick="showCertModal(1)">Leadership and Project Management for IT (NAIT)</li>
+  </ul>
+</div>
+
+<!-- Modal for Certificate Image -->
+<div id="cert-modal" class="cube-modal-bg" style="display:none;">
+  <div class="cube-modal">
+    <span class="cube-modal-close" onclick="hideCertModal()">&times;</span>
+    <div id="cert-modal-content"></div>
+  </div>
+</div>
 
     <div class="footer">
       &copy; <span id="year"></span> Tushar Kant Ram
     </div>
   </div>
-
   <script>
+    // Cube modal details
+    const cubeRoleDetails = {
+      "Software Engineer": {
+        title: "Software Engineer",
+        desc: "Builds robust applications, web platforms, and backend services for Chem AG and clients using modern programming languages and frameworks."
+      },
+      "Data Analyst": {
+        title: "Data Analyst",
+        desc: "Transforms data into actionable insights for better business decisions. Uses analytics and visualization tools to inform Chem AG’s strategies."
+      },
+      "IT Support": {
+        title: "IT Support",
+        desc: "Ensures smooth operation of IT systems, troubleshoots technical issues, and assists Chem AG teams with software and hardware needs."
+      },
+      "Cloud Specialist": {
+        title: "Cloud Specialist",
+        desc: "Implements and manages cloud infrastructure, ensuring Chem AG’s systems are scalable, secure, and highly available worldwide."
+      },
+      "Data Engineer": {
+        title: "Data Engineer",
+        desc: "Designs and builds efficient data pipelines, warehouses, and architectures for Chem AG to enable advanced analytics and data-driven decisions."
+      },
+      "Business Analyst": {
+        title: "Business Analyst",
+        desc: "Bridges business needs with IT solutions, gathers requirements, and leads process improvement projects for Chem AG."
+      }
+    };
+    function showCubeModal(role) {
+      const modal = document.getElementById("cube-modal");
+      const content = document.getElementById("cube-modal-content");
+      if(cubeRoleDetails[role]){
+        content.innerHTML = `<h2>${cubeRoleDetails[role].title}</h2>
+          <p>${cubeRoleDetails[role].desc}</p>`;
+      } else {
+        content.innerHTML = `<h2>${role}</h2><p>More info coming soon...</p>`;
+      }
+      modal.style.display = "flex";
+    }
+    function hideCubeModal() {
+      document.getElementById("cube-modal").style.display = "none";
+    }
+    // Hide modal when clicking outside or pressing Esc
+    window.addEventListener('mousedown', function(e){
+      const modal = document.getElementById("cube-modal");
+      if (modal.style.display === "flex" && !document.querySelector(".cube-modal").contains(e.target)) {
+        hideCubeModal();
+      }
+    });
+    window.addEventListener('keydown', function(e){
+      if(e.key === "Escape") hideCubeModal();
+    });
+
+    // DRAG-TO-ROTATE CUBE (desktop and touch)
+    (() => {
+      const cube = document.getElementById('myCube');
+      let dragging = false, lastX=0, lastY=0, rotX=-24, rotY=30, vx=0, vy=0, frame;
+      // Set initial rotation for drama
+      cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+
+      function setRotation(dx, dy) {
+        rotX = Math.max(-80, Math.min(80, rotX + dx));
+        rotY = rotY + dy;
+        cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+      }
+
+      function pointerDown(e) {
+        dragging = true;
+        cube.classList.add("dragging");
+        lastX = e.touches ? e.touches[0].clientX : e.clientX;
+        lastY = e.touches ? e.touches[0].clientY : e.clientY;
+        cancelAnimationFrame(frame);
+      }
+      function pointerMove(e) {
+        if (!dragging) return;
+        const x = e.touches ? e.touches[0].clientX : e.clientX;
+        const y = e.touches ? e.touches[0].clientY : e.clientY;
+        vx = (y - lastY) * 0.5;
+        vy = (x - lastX) * 0.5;
+        setRotation(vx, vy);
+        lastX = x;
+        lastY = y;
+      }
+      function pointerUp(e) {
+        dragging = false;
+        cube.classList.remove("dragging");
+        // Inertia: keep spinning for a while!
+        let decay = 0.97;
+        function animate() {
+          if (Math.abs(vx) > 0.1 || Math.abs(vy) > 0.1) {
+            setRotation(vx, vy);
+            vx *= decay; vy *= decay;
+            frame = requestAnimationFrame(animate);
+          }
+        }
+        animate();
+      }
+      cube.addEventListener('mousedown', pointerDown);
+      cube.addEventListener('touchstart', pointerDown, {passive: true});
+      window.addEventListener('mousemove', pointerMove);
+      window.addEventListener('touchmove', pointerMove, {passive: false});
+      window.addEventListener('mouseup', pointerUp);
+      window.addEventListener('touchend', pointerUp);
+    })();
+
+    // SKILLS/EXPERIENCE/EDU: autopopulate
     // --- Skill Data ---
     const skills = [
       { icon: "🐍", name: "Python" },
@@ -327,7 +622,6 @@
       `;
       skillList.appendChild(div);
     });
-
     // --- Experience Data ---
     const experience = [
       {
@@ -376,7 +670,6 @@
       `;
       expList.appendChild(li);
     });
-
     // --- Education Data ---
     const education = [
       {
@@ -420,9 +713,40 @@
       `;
       eduList.appendChild(li);
     });
-
     // --- Set Year ---
     document.getElementById('year').textContent = new Date().getFullYear();
+
+     // Add your certificate images here (update URLs as needed)
+  const certImages = [
+    "https://i.imgur.com/hh0bO1e.png", // Example: replace with your real certificate 1 image
+    "https://i.imgur.com/JbTGnHY.png"  // Example: replace with your real certificate 2 image
+  ];
+
+  function showCertModal(idx) {
+    const imgUrl = certImages[idx];
+    const modal = document.getElementById("cert-modal");
+    const content = document.getElementById("cert-modal-content");
+    if (imgUrl) {
+      content.innerHTML = `<img src="${imgUrl}" alt="Certificate" style="max-width:95vw;max-height:70vh;border-radius:12px;box-shadow:0 4px 30px #7fff7488;"/><br>
+        <a href="${imgUrl}" target="_blank" style="color:#7fff74;text-decoration:underline;display:inline-block;margin-top:6px;">View Full Size</a>`;
+    } else {
+      content.innerHTML = `<p>Certificate image not found.</p>`;
+    }
+    modal.style.display = "flex";
+  }
+  function hideCertModal() {
+    document.getElementById("cert-modal").style.display = "none";
+  }
+  // Hide modal when clicking outside or pressing Esc
+  window.addEventListener('mousedown', function(e){
+    const modal = document.getElementById("cert-modal");
+    if (modal.style.display === "flex" && !document.querySelector("#cert-modal-content").contains(e.target) && !document.querySelector(".cert-list").contains(e.target)) {
+      hideCertModal();
+    }
+  });
+  window.addEventListener('keydown', function(e){
+    if(e.key === "Escape") hideCertModal();
+  });
   </script>
 </body>
 </html>
