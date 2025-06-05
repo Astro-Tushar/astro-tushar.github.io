@@ -39,6 +39,39 @@
       background: #f3f6fa;
       margin-bottom: 12px;
     }
+
+    /* 3D cube animation */
+    .cube-container {
+      perspective: 600px;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+    .cube {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      transform-style: preserve-3d;
+      animation: cube-rotate 7s linear infinite;
+    }
+    .cube-face {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: var(--main);
+      border: 3px solid var(--accent);
+      opacity: 0.9;
+    }
+    .cube-face.front  { transform: translateZ(60px); }
+    .cube-face.back   { transform: rotateY(180deg) translateZ(60px); }
+    .cube-face.right  { transform: rotateY(90deg) translateZ(60px); }
+    .cube-face.left   { transform: rotateY(-90deg) translateZ(60px); }
+    .cube-face.top    { transform: rotateX(90deg) translateZ(60px); }
+    .cube-face.bottom { transform: rotateX(-90deg) translateZ(60px); }
+    @keyframes cube-rotate {
+      from { transform: rotateX(0) rotateY(0); }
+      to   { transform: rotateX(360deg) rotateY(360deg); }
+    }
     h1 {
       font-size: 2.5rem;
       color: var(--main);
@@ -192,6 +225,17 @@
         <a href="mailto:tkr.kmc@gmail.com">tkr.kmc@gmail.com</a>
         <a href="tel:+18259778685">+1 825-977-8685</a>
         <a href="https://www.linkedin.com/in/tushar0808/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="cube-container">
+      <div class="cube">
+        <div class="cube-face front"></div>
+        <div class="cube-face back"></div>
+        <div class="cube-face right"></div>
+        <div class="cube-face left"></div>
+        <div class="cube-face top"></div>
+        <div class="cube-face bottom"></div>
       </div>
     </div>
 
